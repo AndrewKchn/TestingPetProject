@@ -36,6 +36,13 @@
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- For dependency Injection -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-picocontainer</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
         <!-- selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
