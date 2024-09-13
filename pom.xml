@@ -16,6 +16,7 @@
         <junit.version>4.13.2</junit.version>
         <selenium.version>4.24.0</selenium.version>
         <webdrivermanager.version>5.9.2</webdrivermanager.version>
+        <log4g.version>2.24.0</log4g.version>
     </properties>
     <dependencies>
         <!-- cucumber -->
@@ -36,7 +37,7 @@
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
-        <!-- For dependency Injection -->
+        <!-- For dependency Injection TestContext -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-picocontainer</artifactId>
@@ -54,6 +55,26 @@
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
         </dependency>
+
+        <!--        Logger log4j-->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>${log4g.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>${log4g.version}</version>
+        </dependency>
+        <!-- Log4j интеграция с SLF4J -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j2-impl</artifactId>
+            <version>${log4g.version}</version>
+            <scope>test</scope>
+        </dependency>
+
 
 
     </dependencies>

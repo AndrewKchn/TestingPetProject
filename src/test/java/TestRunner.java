@@ -7,6 +7,8 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(features = "src/test/resources/features",
         glue = "stepDefinitions",
         monochrome = false, // color logs
-        plugin = {"pretty", "json:target/reports/cucumber.json"})
+        plugin = {"pretty",
+                "html:target/reports/html/report.html",
+                "json:target/reports/json/cucumber.json"})
 public class TestRunner {
 }

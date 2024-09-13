@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <Property name="consolepattern">[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%c{1}] - %msg%n</Property>
+    </Properties>
+    <Appenders>
+        <!-- Console appender -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${consolepattern}"/>
+        </Console>
+
+        <!-- File appender -->
+        <File name="File" fileName="logs/cucumber-log.log" append="true">
+            <PatternLayout pattern="${consolepattern}"/>
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <!-- Logging for the Cucumber package -->
+        <Logger name="io.cucumber" level="info" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File"/>
+        </Logger>
+
+        <!-- Root logger -->
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="File"/>
+        </Root>
+    </Loggers>
+</Configuration>
