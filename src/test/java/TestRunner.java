@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
         glue = "stepDefinitions",
         monochrome = false, // color logs
         plugin = {"pretty",
-//                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
+                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
                 "html:target/reports/html/report.html",
                 "json:target/reports/json/cucumber.json"})
 public class TestRunner {

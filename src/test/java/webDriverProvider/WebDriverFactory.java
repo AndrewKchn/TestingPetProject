@@ -24,7 +24,7 @@ public class WebDriverFactory {
                 options.addArguments("--disable-extensions");
                 options.addArguments("--no-sandbox");
                 options.addArguments("--disable-dev-shm-usage");
-//                options.addArguments("--headless"); //TODO: move to property file and setup
+                options.addArguments("--headless"); //TODO: move to property file and setup
                 options.addArguments("--start-maximized");
                 yield new ChromeDriver(options);
             }
