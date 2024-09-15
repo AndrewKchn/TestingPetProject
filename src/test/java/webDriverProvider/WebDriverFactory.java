@@ -1,7 +1,6 @@
 package webDriverProvider;
 
 import config.MavenProperties;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -20,12 +19,17 @@ public class WebDriverFactory {
     private static WebDriver initDriver(String browser) {
         return switch (browser) {
             case "chrome" -> {
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--headless"); //TODO: move to property file and setup
-                yield WebDriverManager.chromedriver().capabilities(chromeOptions).create();
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--disable-gpu");
+                options.addArguments("--disable-extensions");
+                options.addArguments("--no-sandbox");
+                options.addArguments("--disable-dev-shm-usage");
+//                options.addArguments("--headless"); //TODO: move to property file and setup
+                options.addArguments("--start-maximized");
+                yield new ChromeDriver(options);
             }
             case "edge" -> {
-                WebDriverManager.edgedriver().setup();
+//                WebDriverManager.edgedriver().setup();
                 yield new EdgeDriver();
             }
             default -> throw new IllegalStateException("Browser not found!");
