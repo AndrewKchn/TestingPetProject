@@ -1,7 +1,7 @@
 version: '1.0'
 
 services:
-  regretion-test: # random name
+  regression-test: # random name
 #    image: maven:3.9.6-sapmachine-21 # target image from hub.docker
     build:
       context: .

@@ -1,0 +1,27 @@
+name: UI Tests
+
+on: [push]
+
+jobs:
+  ui-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run UI-Tests via docker-compose
+        run: |
+          docker compose up --exit-code-from regression-test || true
+
+      - name: Generate allure report
+        run: |
+          sudo docker compose run regression-test /bin/sh -c "mvn allure:report"
+
+      - name: Deploy to GitHub pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          github_token: ${{ secrets.CI_TOKEN }}
+          branch: gh-pages
+          folder: allure-report
+          clean: true
+
