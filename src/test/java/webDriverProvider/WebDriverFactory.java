@@ -1,10 +1,12 @@
 package webDriverProvider;
 
 import config.MavenProperties;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class WebDriverFactory {
 
@@ -26,11 +28,17 @@ public class WebDriverFactory {
                 options.addArguments("--disable-dev-shm-usage");
                 options.addArguments("--headless"); //TODO: move to property file and setup
                 options.addArguments("--start-maximized");
-                yield new ChromeDriver(options);
+                yield WebDriverManager.chromedriver().capabilities(options).create();
+//                yield new ChromeDriver(options);
+
             }
             case "edge" -> {
-//                WebDriverManager.edgedriver().setup();
+                WebDriverManager.edgedriver().setup();
                 yield new EdgeDriver();
+            }
+            case "firefox" -> {
+                WebDriverManager.firefoxdriver().setup();
+                yield new FirefoxDriver();
             }
             default -> throw new IllegalStateException("Browser not found!");
         };
