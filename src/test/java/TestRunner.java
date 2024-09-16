@@ -9,6 +9,7 @@ import io.cucumber.junit.CucumberOptions;
         monochrome = false, // color logs
         plugin = {"pretty",
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
+                "CucumberLog4jPlugin",
                 "html:target/reports/html/report.html",
                 "json:target/reports/json/cucumber.json"})
 public class TestRunner {

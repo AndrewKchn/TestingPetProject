@@ -1,8 +1,7 @@
 package stepDefinitions.uiTests;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.Scenario;
+import io.cucumber.java.*;
+import logs.LogOutputStream;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
@@ -12,15 +11,29 @@ import webDriverProvider.WebDriverFactory;
 
 import java.time.Duration;
 
-public class SetUpUi {
+public class Hook {
 
     private TestContextUI testContextUi;
     private WebDriver driver;
     private Scenario scn;
-    private static final Logger LOGGER = LogManager.getLogger(SetUpUi.class);
+    private static final Logger LOGGER = LogManager.getLogger(Hook.class);
 
-    public SetUpUi(TestContextUI testContextUi) {
+    public Hook(TestContextUI testContextUi) {
         this.testContextUi = testContextUi;
+    }
+
+    @BeforeAll
+    public static void setUpEnv() {
+        LOGGER.info("Hello from @BeforeAll");
+    }
+
+    @Before
+    public static void setUpLogger() {
+        LogOutputStream.redirectPrintsToLogger();
+    }
+    @AfterAll
+    public static void afterAll() {
+        LOGGER.info("Hello from @AfterAll");
     }
 
     @Before
