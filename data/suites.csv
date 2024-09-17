@@ -1,0 +1,3 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","9849","Validate click on button","","Tue Sep 17 00:00:55 GMT 2024","passed","Tue Sep 17 00:01:04 GMT 2024","","feature to use waiting of page elements","Validate click on button",""
+"","7959","Validate click on button enable after","","Tue Sep 17 00:01:05 GMT 2024","passed","Tue Sep 17 00:01:12 GMT 2024","","feature to use waiting of page elements","Validate click on button enable after",""
