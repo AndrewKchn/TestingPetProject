@@ -1,3 +1,3 @@
 "DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"","9972","Validate click on button","","Tue Sep 17 00:33:22 GMT 2024","passed","Tue Sep 17 00:33:32 GMT 2024","","feature to use waiting of page elements","Validate click on button",""
-"","8274","Validate click on button enable after","","Tue Sep 17 00:33:32 GMT 2024","passed","Tue Sep 17 00:33:40 GMT 2024","","feature to use waiting of page elements","Validate click on button enable after",""
+"","9090","Validate click on button","","Tue Sep 17 00:41:03 GMT 2024","passed","Tue Sep 17 00:41:12 GMT 2024","","feature to use waiting of page elements","Validate click on button",""
+"","7567","Validate click on button enable after","","Tue Sep 17 00:41:12 GMT 2024","passed","Tue Sep 17 00:41:20 GMT 2024","","feature to use waiting of page elements","Validate click on button enable after",""
