@@ -1,6 +1,6 @@
 name: UI Tests
 
-on: [push]
+on: workflow_dispatch
 
 jobs:
   ui-tests:
@@ -9,13 +9,28 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Checkout (copy) gh-pages repository to GitHub runner
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: ./.github/gh-pages
+
       - name: Run UI-Tests via docker-compose
         run: |
           docker compose up --exit-code-from regression-test || true
 
+      - name: Copy history from hg-pages to allure-results
+        run: |
+          sudo mkdir -p allure-results/history
+          sudo cp -R ./.github/gh-pages/history/* allure-results/history/
+
       - name: Generate allure report
         run: |
           sudo docker compose run regression-test /bin/sh -c "mvn allure:report"
+
+#      - name: Update allure history
+#        run: |
+#          sodo cp -R allure-report/history* ./.github/gh-pages/history/
 
       - name: Deploy to GitHub pages
         uses: JamesIves/github-pages-deploy-action@v4
